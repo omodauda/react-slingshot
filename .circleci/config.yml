@@ -24,11 +24,13 @@ jobs:
       - checkout
       - run: npm audit
 
-workflow:
-  - build
-  - test:
-      requires:
-        - build
-  - analyze:
-      requires:
-        - build
+workflows:
+  react-sling-workflow:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - build
